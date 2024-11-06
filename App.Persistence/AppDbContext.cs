@@ -48,9 +48,12 @@ namespace App.Persistence
                     {
                         case EntityState.Modified:
                             trackable.UpdatedAt = utcNow;
+                            trackable.UpdatedBy = "System";
                             break;
                         case EntityState.Added:
                             trackable.CreatedAt = utcNow;
+                            trackable.CreatedBy = "System";
+                            trackable.IsDeleted = false;
                             break;
                     }
                 }
